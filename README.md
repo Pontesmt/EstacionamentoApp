@@ -175,7 +175,24 @@ Principais caracteristicas do code first
  
 Migrations no Entity framework
 
-As Migrations são
+As Migrations são uma funcionalidade do EF Code first galera, ele gerencia as mudanças no esquema do banco de dados ao longo do ciclo de vida do desenvolvimento. À medida que o modelo seja de domínio (classes) evolui, as migrations permitem que o banco seja atualizado de forma incremental.
+
+*Principais etapas das Migrations
+
+1 - Criação: cada modificação no modelo de monìnio ( como adição de uma nova propiedade ou entidade) pode ser registrada em uma migration.
+2 - Aplicação: As Migrations são aplicadas ao banco de dados para sincronizar o esquema com o modelo de domínio.
+3 - controle de versão: O EF mantém um historico das migrations aplicadas, permitindo que o banco seja atualizado ou revertido para versões anteriores.
+
+
+beneficios:
+
+*Automação: reduz a necessiade de scripts manuais para alterações no banco
+*Consistência: Garante que o esquema do banco de dados esteja sempre alinhado com o modelo
+*Colaboração: Em equipes de desenvolvimento, as migrationsoermitem que todos trabalhem com o mesmo esquema de vanco de dados.
+
+----------------------------------------------------------------------------------------
+
+
 
 
 
