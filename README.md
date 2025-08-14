@@ -192,6 +192,42 @@ beneficios:
 
 ----------------------------------------------------------------------------------------
 
+Usando o método de arquitetura limpa, eu consigo unir um conjunto de principios de boas praticas.
+
+UMA ESTRUTURA EM CAMADAS SEPARANDO CADA RESPONSABILIDADE DEVE SER FEITA EM QUALQUER CÓDIGO.
+
+Desenvolvimento do dominio da aplicação:
+
+Essa camada de dominio ela representa o "core" do sistema, porque dentro desse dominio a gente pode encontrar
+
+-Entidades
+-Interfaces
+-DTOS
+-Validações
+-Serviços do dominio
+
+Agora vou fazer as validações das entidades de dominio:
+para isso eu vou usar a biblioteca fluent validation
+
+Após fazer a validação dos dados da entidade do Veiculo
+
+são serviços de dominio para entrada e saida de dados
+
+faço a criação dos DTOS
+CadastroVeiculoRequestDto - request
+CadastroVeiculoResponseDto - Response
+
+
+Depois das criações dos DTOS, vou criar uma interface para definir os métodos que serão implementados 
+plos serviços de dominio: No POO uma interface funciona quase como um contrato, ela vai definir quais metodos deverão ser implementados por 
+classes do projeto.
+
+Implementei a interface, criei uma classe que pode fornecer corpo para todos os metodos abstratos da interface.
+
+proximo passo fazer injeção de dependencia.
+
+
+
 
 
 
