@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
+using FluentValidation;
+using EstacionamentoApp.Domain.Dtos;
 using Microsoft.AspNetCore.Mvc;
+using EstacionamentoApp.Domain.Service;
 
 namespace EstacionamentoApp.Controllers
 {
@@ -7,11 +10,37 @@ namespace EstacionamentoApp.Controllers
     [ApiController]
     public class EstacionamentoController : ControllerBase
     {
+
+        private readonly IVeiculoDomainService _veiculoDomainService;
+
+        public EstacionamentoController(IVeiculoDomainService veiculoDomainService)
+        {
+            _veiculoDomainService = veiculoDomainService;
+        }
+
         [Route("adicionarveiculo")]
         [HttpPost]
-        public IActionResult AdicionarVeiculo()
+        [ProducesResponseType(typeof(CadastroVeiculoResponseDto), 201)]
+        public IActionResult AdicionarVeiculo
+                        ([FromBody] CadastroVeiculoRequestDto request)
         {
-            return Ok("");
+            try
+            {
+                return StatusCode(201, _veiculoDomainService
+                                               .CadastroVeiculo(request));
+            }
+            catch (ValidationException e)
+            {
+                return BadRequest(e.Errors.Select(e => e.ErrorMessage));
+            }
+            catch (ApplicationException e)
+            {
+                return UnprocessableEntity(new { e.Message });
+            }
+            catch(Exception e)
+            {
+                return StatusCode(500, new { e.Message });
+            }
         }
 
         [Route("removerveiculo")]
