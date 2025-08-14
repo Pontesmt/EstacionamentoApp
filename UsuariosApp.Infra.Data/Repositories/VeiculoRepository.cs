@@ -5,10 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UsuariosApp.Infra.Data.Contexts;
+using EstacionamentoApp.Infra.Data.Contexts;
 
 
-namespace EstacionamentoApp.Domain.Interfaces.Repositories
+namespace EstacionamentoApp.Infra.Data.Repositories
 {
     public class VeiculoRepository : IVeiculoRepository
     {

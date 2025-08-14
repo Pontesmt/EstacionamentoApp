@@ -2,7 +2,8 @@
 using FluentValidation;
 using EstacionamentoApp.Domain.Dtos;
 using Microsoft.AspNetCore.Mvc;
-using EstacionamentoApp.Domain.Service;
+using EstacionamentoApp.Domain.Services;
+using EstacionamentoApp.Domain.Interface;
 
 namespace EstacionamentoApp.Controllers
 {

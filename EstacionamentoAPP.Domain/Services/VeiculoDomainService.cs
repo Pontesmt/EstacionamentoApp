@@ -8,9 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EstacionamentoApp.Domain.Interfaces.Repositories;
+using EstacionamentoApp.Domain.Services;
+using EstacionamentoApp.Domain.Interface;
 
 
-namespace EstacionamentoApp.Domain.Service
+namespace EstacionamentoApp.Domain.Services
 {
     public class VeiculoDomainService : IVeiculoDomainService
     {

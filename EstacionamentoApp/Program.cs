@@ -1,3 +1,11 @@
+using EstacionamentoApp.Domain.Services;
+using EstacionamentoApp.Domain.Interfaces.Repositories;
+using EstacionamentoApp.Domain.Interface;
+using EstacionamentoApp.Infra.Data.Repositories;
+
+
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

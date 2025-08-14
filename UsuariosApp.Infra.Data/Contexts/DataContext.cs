@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UsuariosApp.Infra.Data.Mappings;
+using EstacionamentoApp.Infra.Data.Mappings;
 
-namespace UsuariosApp.Infra.Data.Contexts
+namespace EstacionamentoApp.Infra.Data.Contexts
 {
     public class DataContext : DbContext
     {

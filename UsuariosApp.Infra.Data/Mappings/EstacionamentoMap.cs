@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using EstacionamentoApp.Domain.Entities;
 
-namespace UsuariosApp.Infra.Data.Mappings
+namespace EstacionamentoApp.Infra.Data.Mappings
 {
     public class EstacionamentoMap : IEntityTypeConfiguration<Veiculo>
     {
