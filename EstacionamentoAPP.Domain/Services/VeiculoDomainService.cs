@@ -7,12 +7,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EstacionamentoApp.Domain.Interfaces.Repositories;
 
 
 namespace EstacionamentoApp.Domain.Service
 {
     public class VeiculoDomainService : IVeiculoDomainService
     {
+
+        private readonly IVeiculoRepository _veiculoRepository;
+
+        public VeiculoDomainService(IVeiculoRepository veiculoRepository)
+        {
+            _veiculoRepository = veiculoRepository;
+        }
+
+
         public CadastroVeiculoResponseDto CadastroVeiculo
                (CadastroVeiculoRequestDto request)
         {
@@ -33,7 +43,23 @@ namespace EstacionamentoApp.Domain.Service
                 throw new ValidationException(result.Errors);
             }
 
-            return null;
+            if (_veiculoRepository.Exists(veiculo.EmailDono))
+            {
+                throw new Exception("Já existe um veículo cadastrado com este email.");
+            }
+
+            _veiculoRepository.Insert(veiculo);
+
+            var response = new CadastroVeiculoResponseDto
+            {
+                Id = veiculo.Id,
+                NomeDono = veiculo.NomeDono,
+                EmailDono = veiculo.EmailDono,
+                Placa = veiculo.Placa,
+                HorarioSaida = veiculo.HorarioSaida ?? DateTime.MinValue
+            };
+
+            return response;
 
         }
     }
