@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36109.1 d17.14
+VisualStudioVersion = 17.14.36109.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstacionamentoApp", "EstacionamentoApp\EstacionamentoApp.csproj", "{BBD58198-BA12-41FA-979A-7A4D0B00CDAC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstacionamentoApp.Domain", "EstacionamentoAPP.Domain\EstacionamentoApp.Domain.csproj", "{2262193B-616B-4D57-A268-4A89562D90E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsuariosApp.Infra.Data", "UsuariosApp.Infra.Data\UsuariosApp.Infra.Data.csproj", "{512A139F-1A35-4514-8AF6-E6D22C4C430A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstacionamentoApp.Infra.Data", "UsuariosApp.Infra.Data\EstacionamentoApp.Infra.Data.csproj", "{512A139F-1A35-4514-8AF6-E6D22C4C430A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsuariosApp.Test", "UsuariosApp.Test\UsuariosApp.Test.csproj", "{504F0283-688C-4042-993C-F851F14EC1E4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstacionamentoApp.Test", "UsuariosApp.Test\EstacionamentoApp.Test.csproj", "{504F0283-688C-4042-993C-F851F14EC1E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
