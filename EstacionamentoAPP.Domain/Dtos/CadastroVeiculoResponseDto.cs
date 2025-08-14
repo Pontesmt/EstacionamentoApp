@@ -4,17 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EstacionamentoApp.Domain.Entities
+namespace EstacionamentoApp.Domain.Dtos
 {
-    public class Veiculo
+    public class CadastroVeiculoResponseDto
     {
-
         public Guid Id { get; set; }
         public string NomeDono { get; set; }
         public string EmailDono { get; set; }
         public string Placa { get; set; }
-        public DateTime HorarioEntrada { get; set; }
-        public DateTime? HorarioSaida { get; set; }
-
+        public DateTime HorarioSaida { get; set; }
     }
 }
