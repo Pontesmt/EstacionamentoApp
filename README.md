@@ -227,7 +227,39 @@ Implementei a interface, criei uma classe que pode fornecer corpo para todos os 
 proximo passo fazer injeção de dependencia.
 
 
+Injeção de dependencia 
 
+O objetivo dela é fazer com que os objetos de classes ou de interfaces, que podem ser inicializados 
+de forma automatica em tempo de execução
+
+Eu estou desenvolvendo a classe de serviço de dominio. Esta classe precisa do repositorio para construir as suas regras de negocio.
+
+para que a classe VeiculoDomainService possa acessar os metodos do repositorio ela ira ultizar a interface criada para o repositorio
+IVeiculoRepository
+
+estes conceitos estão linkados com 2 principios do Solid
+
+*ISP - Principio de segregação de interfaces
+*DIP - Principio de inversao de dependencia
+
+
+
+
+já que estamos criando interfaces para varias classes do projeto, podemos acessar estas interfaces ao inves de acessar
+as classes diretamente.
+
+Quando uma classe de ALTO NIVEL precisa acessar classes de BAIXO NIVEL ela na verdade vai acessar as interfaces
+
+primeiro passo para fazer isso é a classe VeiculoDomainService, ela ira declarar um atributo somente leitura na interface IVeiculoRepository.
+
+O segundo passo é criar um construtor que possa inicializar esse atributo
+
+depois disso eu voltei para o projeto API e adicionar referencia para todos os projetos da solução.
+
+No controlador precisso acessar os métodos do serviço de dominio, porém, respeitando so principios do SOLID eu vou acessar a interface do serviço de dominio
+vou acessar a interface do serviço de dominio.
+
+Configurei as injeções de dependencia do projeto.
 
 
 
