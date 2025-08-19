@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EstacionamentoApp.Domain.Interface;
+namespace EstacionamentoApp.Domain.Interface
+{
     public interface IVeiculoDomainService
     {
-        CadastroVeiculoResponseDto CadastroVeiculo
-               (CadastroVeiculoRequestDto request);
-
+        CadastroVeiculoResponseDto CadastroVeiculo(CadastroVeiculoRequestDto request);
     }
+}
 

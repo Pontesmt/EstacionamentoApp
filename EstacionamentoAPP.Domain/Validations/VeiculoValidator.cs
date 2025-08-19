@@ -30,12 +30,12 @@ namespace EstacionamentoApp.Domain.Validations
                 .Length(1, 10).WithMessage("A placa do veículo deve ter entre 1 e 10 caracteres.");
 
             RuleFor(v => v.HorarioEntrada)
-                .NotEmpty().WithMessage("O horário de entrada não pode ser vazio.")
-                .LessThanOrEqualTo(DateTime.Now).WithMessage("O horário de entrada não pode ser no futuro.");
+                 .NotEmpty().WithMessage("O horário de entrada não pode ser vazio.");
 
             RuleFor(v => v.HorarioSaida)
-                .GreaterThanOrEqualTo(v => v.HorarioEntrada).When(v => v.HorarioSaida.HasValue)
-                .WithMessage("O horário de saída deve ser maior ou igual ao horário de entrada.");  
+                .GreaterThanOrEqualTo(v => v.HorarioEntrada)
+                .When(v => v.HorarioSaida.HasValue)
+                .WithMessage("O horário de saída deve ser maior ou igual ao horário de entrada.");
         }
     }
 }

@@ -28,13 +28,15 @@ namespace EstacionamentoApp.Domain.Services
         public CadastroVeiculoResponseDto CadastroVeiculo
                (CadastroVeiculoRequestDto request)
         {
+            var horarioEntrada = DateTimeOffset.UtcNow.ToOffset(TimeSpan.FromHours(-3)); // Horário de Brasília
+
             var veiculo = new Veiculo
             {
                 Id = Guid.NewGuid(),
                 NomeDono = request.NomeDono,
                 EmailDono = request.EmailDono,
                 Placa = request.Placa,
-                HorarioEntrada = request.HorarioEntrada
+                HorarioEntrada = horarioEntrada,
             };
 
             var validation = new VeiculoValidator();
@@ -58,7 +60,7 @@ namespace EstacionamentoApp.Domain.Services
                 NomeDono = veiculo.NomeDono,
                 EmailDono = veiculo.EmailDono,
                 Placa = veiculo.Placa,
-                HorarioSaida = veiculo.HorarioSaida ?? DateTime.MinValue
+                HorarioEntrada = horarioEntrada,
             };
 
             return response;

@@ -22,13 +22,11 @@ namespace EstacionamentoApp.Controllers
         [Route("adicionarveiculo")]
         [HttpPost]
         [ProducesResponseType(typeof(CadastroVeiculoResponseDto), 201)]
-        public IActionResult AdicionarVeiculo
-                        ([FromBody] CadastroVeiculoRequestDto request)
+        public IActionResult AdicionarVeiculo([FromBody] CadastroVeiculoRequestDto request)
         {
             try
             {
-                return StatusCode(201, _veiculoDomainService
-                                               .CadastroVeiculo(request));
+                return StatusCode(201, _veiculoDomainService.CadastroVeiculo(request));
             }
             catch (ValidationException e)
             {

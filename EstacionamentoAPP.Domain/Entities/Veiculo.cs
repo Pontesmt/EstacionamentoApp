@@ -13,8 +13,8 @@ namespace EstacionamentoApp.Domain.Entities
         public string NomeDono { get; set; }
         public string EmailDono { get; set; }
         public string Placa { get; set; }
-        public DateTime HorarioEntrada { get; set; }
-        public DateTime? HorarioSaida { get; set; }
+        public DateTimeOffset HorarioEntrada { get; set; }
+        public DateTimeOffset? HorarioSaida { get; set; }
 
     }
 }
