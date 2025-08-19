@@ -36,7 +36,7 @@ namespace EstacionamentoApp.Controllers
             {
                 return UnprocessableEntity(new { e.Message });
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return StatusCode(500, new { e.Message });
             }
@@ -47,6 +47,15 @@ namespace EstacionamentoApp.Controllers
         public IActionResult RemoverVeiculo()
         {
             return Ok("");
+        }
+
+        [Route("GetHora")]
+        [HttpGet]
+        public IActionResult GetHora()
+        {
+            return Ok(DateTime.Now.ToString("HH:mm:ss"));
+
+
         }
     }
 }

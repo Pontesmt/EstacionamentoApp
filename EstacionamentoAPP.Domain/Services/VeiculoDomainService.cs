@@ -28,7 +28,7 @@ namespace EstacionamentoApp.Domain.Services
         public CadastroVeiculoResponseDto CadastroVeiculo
                (CadastroVeiculoRequestDto request)
         {
-            var horarioEntrada = DateTimeOffset.UtcNow.ToOffset(TimeSpan.FromHours(-3)); // Horário de Brasília
+            var horarioEntrada = DateTime.Now;
 
             var veiculo = new Veiculo
             {

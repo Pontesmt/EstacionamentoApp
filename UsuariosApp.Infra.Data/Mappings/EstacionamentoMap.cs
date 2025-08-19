@@ -22,12 +22,12 @@ namespace EstacionamentoApp.Infra.Data.Mappings
                 .HasColumnName("ID");
 
             builder.Property(v => v.NomeDono)
-                .HasColumnName("NOME_DONO")
+                .HasColumnName("NOMEDONO")
                 .IsRequired()
                 .HasMaxLength(150);
 
             builder.Property(v => v.EmailDono)
-                .HasColumnName("EMAIL_DONO")
+                .HasColumnName("EMAILDONO")
                 .IsRequired()
                 .HasMaxLength(150);
 
@@ -40,11 +40,11 @@ namespace EstacionamentoApp.Infra.Data.Mappings
                 .HasMaxLength(10);
 
             builder.Property(v => v.HorarioEntrada)
-                .HasColumnName("HORARIO_ENTRADA")
+                .HasColumnName("HORARIOENTRADA")
                 .IsRequired();
 
             builder.Property(v => v.HorarioSaida)
-                .HasColumnName("HORARIO_SAIDA")
+                .HasColumnName("HORARIOSAIDA")
                 .IsRequired(false);
 
         }
