@@ -7,19 +7,17 @@ using EstacionamentoApp.Domain.Interface;
 
 namespace EstacionamentoApp.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/veiculo")]
     [ApiController]
-    public class EstacionamentoController : ControllerBase
+    public class VeiculoController : ControllerBase
     {
-
         private readonly IVeiculoDomainService _veiculoDomainService;
 
-        public EstacionamentoController(IVeiculoDomainService veiculoDomainService)
+        public VeiculoController(IVeiculoDomainService veiculoDomainService)
         {
             _veiculoDomainService = veiculoDomainService;
         }
 
-        [Route("adicionarveiculo")]
         [HttpPost]
         [ProducesResponseType(typeof(CadastroVeiculoResponseDto), 201)]
         public IActionResult AdicionarVeiculo([FromBody] CadastroVeiculoRequestDto request)
@@ -42,20 +40,17 @@ namespace EstacionamentoApp.Controllers
             }
         }
 
-        [Route("removerveiculo")]
-        [HttpPost]
-        public IActionResult RemoverVeiculo()
+        [HttpDelete("{placa}")]
+        public IActionResult RemoverVeiculo(string placa)
         {
-            return Ok("");
+            
+            return Ok();
         }
 
-        [Route("GetHora")]
-        [HttpGet]
+        [HttpGet("hora")]
         public IActionResult GetHora()
         {
             return Ok(DateTime.Now.ToString("HH:mm:ss"));
-
-
         }
     }
 }
