@@ -261,6 +261,40 @@ vou acessar a interface do serviço de dominio.
 
 Configurei as injeções de dependencia do projeto.
 
+Exemplo de DIP : Um modulo de alto nivel como uma classe de serviço não deve instanciar diretam,ente um repositorio. Em vez disso, ele deve depender de uma abstração(interface) que define o contrato que o repositorio implementara.
+
+
+Papel da injeção de dependencia: É um padrão que facilita a imnplementação do DIP. Ela consiste em dornecer dependencias externas(Como services, repositories ou  objects).
+
+-Tipos de injeção de dependencia
+
+1- injeção via construtor:
+* As dependencias são fornecidas por meio do construtor da classe
+*A mais comum e recomendada para garantir que a dependencia seja obrigatoria e configurada no momento da criação do objeto
+2- Injeção via propiedade:
+*A dependencia é configurada por meio de uma propiedade publica
+*Util para dependencias opcionais opu que podem ser configuradas após a criação do projeto
+3. Injeção via Método:
+*As dependências são passadas como parâmetros de métodos
+específicos.
+*Comum em cenários onde as dependências variam entre
+chamadas.
+
+Agora irei focar na biblioteca de classe do .NET Xunit
+
+ela é feita exclusivamente para criação e desenvolvimento de testes. Nessa solução fiz um projeto que seu opbjetivo é realizar testes em cada endpoint da minha API ou chamado de teste de integração.
+
+
+Este projeto deverá executar os endpoints da API para verificar se estao funcionando da maneira correta
+
+IMPORTANTE LEMBRAR
+para que o projeto xunit possa executar testes na API, ele precisa adicionar referencia para o projeto da API
+
+para desenvolver um projeto de teste instalei as 3 bibliotecas: MVC.TESTING, Fluent Assertions(para asserções de teste, comparação entre os esperados e os obtidos), BOGUS (gera dados fake)
+
+
+
+
 
 
 
