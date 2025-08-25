@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using EstacionamentoApp.Domain.Services;
 using EstacionamentoApp.Domain.Interface;
 
+
 namespace EstacionamentoApp.Controllers
 {
     [Route("api/veiculo")]
@@ -38,6 +39,26 @@ namespace EstacionamentoApp.Controllers
             {
                 return StatusCode(500, new { e.Message });
             }
+        }
+
+        [Route("Retirar")]
+        [HttpPost]
+        [ProducesResponseType(typeof(RetirarVeiculoResponseDto), 200)]
+        public IActionResult AutenticarVeiculo([FromBody] RetirarVeiculoRequestDto request)
+        {
+            try
+            {
+                return StatusCode(200,_veiculoDomainService.RetirarVeiculo(request));
+            }
+            catch (ValidationException e)
+            {
+                return StatusCode(401, new { e.Message });
+            }
+            catch (ApplicationException e)
+            {
+                return StatusCode(500, new { e.Message });
+            }
+         
         }
 
         [HttpDelete("{placa}")]

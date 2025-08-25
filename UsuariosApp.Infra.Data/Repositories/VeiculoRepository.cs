@@ -29,10 +29,9 @@ namespace EstacionamentoApp.Infra.Data.Repositories
                 return dataContext
                 .Set<Veiculo>()
                 .Where(v => v.EmailDono.Equals(email)
-                               && v.Placa.Equals(placa)) //filtro
+                               && v.Placa.Equals(placa)) 
                 .FirstOrDefault();
-                //retornar o primeiro registro encontrado vazio
-
+                
             }
         }
 
@@ -42,7 +41,7 @@ namespace EstacionamentoApp.Infra.Data.Repositories
             {
                 return dataContext
                 .Set<Veiculo>()
-                .Any(v => v.EmailDono.Equals(email)); //verifica se existe algum registro com o email informado
+                .Any(v => v.EmailDono.Equals(email)); 
             }
         }
     }

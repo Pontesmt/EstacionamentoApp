@@ -6,13 +6,9 @@ using System.Threading.Tasks;
 
 namespace EstacionamentoApp.Domain.Dtos
 {
-    public class AutenticarVeiculoResponseDto
+    public class RetirarVeiculoRequestDto
     {
-        public Guid Id { get; set; }
         public string Placa { get; set; }
-        public string NomeDono { get; set; }
         public string EmailDono { get; set; }
-        public DateTime HoraEntrada { get; set; }
-        public DateTime? HoraSaida { get; set; }
     }
 }
