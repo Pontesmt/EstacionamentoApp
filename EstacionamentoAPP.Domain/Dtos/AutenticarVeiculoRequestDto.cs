@@ -9,6 +9,6 @@ namespace EstacionamentoApp.Domain.Dtos
     public class AutenticarVeiculoRequestDto
     {
         public string Placa { get; set; }
-        public string Email { get; set; }
+        public string EmailDono { get; set; }
     }
 }

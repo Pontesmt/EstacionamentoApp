@@ -14,6 +14,5 @@ namespace EstacionamentoApp.Domain.Dtos
         public string EmailDono { get; set; }
         public DateTime HoraEntrada { get; set; }
         public DateTime? HoraSaida { get; set; }
-        public string token { get; set; }
     }
 }

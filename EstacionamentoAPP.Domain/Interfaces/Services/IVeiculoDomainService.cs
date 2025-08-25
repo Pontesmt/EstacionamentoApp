@@ -10,6 +10,8 @@ namespace EstacionamentoApp.Domain.Interface
     public interface IVeiculoDomainService
     {
         CadastroVeiculoResponseDto CadastroVeiculo(CadastroVeiculoRequestDto request);
+
+        AutenticarVeiculoResponseDto AutenticarVeiculo(AutenticarVeiculoRequestDto request);
     }
 }
 

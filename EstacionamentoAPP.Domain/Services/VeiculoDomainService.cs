@@ -19,11 +19,11 @@ namespace EstacionamentoApp.Domain.Services
 
         private readonly IVeiculoRepository _veiculoRepository;
 
-        public VeiculoDomainService(IVeiculoRepository veiculoRepository)
-        {
-            _veiculoRepository = veiculoRepository;
-        }
 
+        public AutenticarVeiculoResponseDto AutenticarVeiculo(AutenticarVeiculoRequestDto request)
+        {
+            throw new NotImplementedException();
+        }
 
         public CadastroVeiculoResponseDto CadastroVeiculo
                (CadastroVeiculoRequestDto request)
@@ -64,7 +64,27 @@ namespace EstacionamentoApp.Domain.Services
             };
 
             return response;
+        }
 
+        public AutenticarVeiculoResponseDto AutenticarVeiculo
+                     (AutenticarVeiculoRequestDto request)
+
+        {
+            var veiculo = _veiculoRepository.Find
+                                    (request.Placa, request.EmailDono);
+            if(veiculo == null)
+               throw new Exception("Veículo não encontrado.");
+
+            var response = new AutenticarVeiculoResponseDto
+            {
+                Id = veiculo.Id,
+                NomeDono = veiculo.NomeDono,
+                EmailDono = veiculo.EmailDono,
+                Placa = veiculo.Placa,              
+                HoraSaida = DateTime.Now,
+                
+            };
+            return response;
         }
     }
 }
