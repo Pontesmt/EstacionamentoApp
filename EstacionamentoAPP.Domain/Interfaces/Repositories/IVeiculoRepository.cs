@@ -9,5 +9,6 @@ namespace EstacionamentoApp.Domain.Interfaces.Repositories
         Veiculo? Find(string email, string placa);
 
         bool Exists(string email);
+
     }
 }

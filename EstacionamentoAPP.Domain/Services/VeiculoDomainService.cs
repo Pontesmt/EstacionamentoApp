@@ -67,23 +67,29 @@ namespace EstacionamentoApp.Domain.Services
             return response;
         }
 
-        public RetirarVeiculoResponseDto RetirarVeiculo
-                     (RetirarVeiculoRequestDto request)
-
+        public RetirarVeiculoResponseDto RetirarVeiculo(RetirarVeiculoRequestDto request)
         {
             var veiculo = _veiculoRepository.Find(request.EmailDono, request.Placa);
-            if(veiculo == null)
-               throw new Exception("Veículo não encontrado.");
+
+            if (veiculo == null)
+            {
+                throw new Exception("Veículo não encontrado.");
+            }
+
+            var horarioSaida = DateTime.Now;
+            var tempoEstacionado = horarioSaida - veiculo.HorarioEntrada;
 
             var response = new RetirarVeiculoResponseDto
             {
                 Id = veiculo.Id,
                 NomeDono = veiculo.NomeDono,
                 EmailDono = veiculo.EmailDono,
-                Placa = veiculo.Placa,              
-                HoraSaida = DateTime.Now,
-                
+                Placa = veiculo.Placa,
+                HorarioEntrada = veiculo.HorarioEntrada,
+                HorarioSaida = horarioSaida,
+                TempoEstacionado = tempoEstacionado
             };
+
             return response;
         }
     }

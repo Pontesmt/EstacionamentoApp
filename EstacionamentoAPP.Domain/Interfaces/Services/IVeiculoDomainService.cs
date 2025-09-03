@@ -12,6 +12,7 @@ namespace EstacionamentoApp.Domain.Interface
         CadastroVeiculoResponseDto CadastroVeiculo(CadastroVeiculoRequestDto request);
 
         RetirarVeiculoResponseDto RetirarVeiculo(RetirarVeiculoRequestDto request);
+
     }
 }
 

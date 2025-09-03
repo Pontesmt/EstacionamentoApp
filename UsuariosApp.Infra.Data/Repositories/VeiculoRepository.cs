@@ -29,9 +29,9 @@ namespace EstacionamentoApp.Infra.Data.Repositories
                 return dataContext
                 .Set<Veiculo>()
                 .Where(v => v.EmailDono.Equals(email)
-                               && v.Placa.Equals(placa)) 
+                               && v.Placa.Equals(placa))
                 .FirstOrDefault();
-                
+
             }
         }
 
@@ -41,9 +41,21 @@ namespace EstacionamentoApp.Infra.Data.Repositories
             {
                 return dataContext
                 .Set<Veiculo>()
-                .Any(v => v.EmailDono.Equals(email)); 
+                .Any(v => v.EmailDono.Equals(email));
+            }
+        }
+
+        public Veiculo? Find(string email)
+        {
+            using (var dataContext = new DataContext())
+            {
+                return dataContext
+                    .Set<Veiculo>()
+                    .Where(v => v.EmailDono.Equals(email))
+                    .FirstOrDefault();
             }
         }
     }
 }
+
 

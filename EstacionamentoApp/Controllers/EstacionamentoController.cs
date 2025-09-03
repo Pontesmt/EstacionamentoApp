@@ -48,7 +48,7 @@ namespace EstacionamentoApp.Controllers
         {
             try
             {
-                return StatusCode(200,_veiculoDomainService.RetirarVeiculo(request));
+                return StatusCode(200, _veiculoDomainService.RetirarVeiculo(request));
             }
             catch (ValidationException e)
             {
@@ -58,20 +58,8 @@ namespace EstacionamentoApp.Controllers
             {
                 return StatusCode(500, new { e.Message });
             }
-         
-        }
 
-        [HttpDelete("{placa}")]
-        public IActionResult RemoverVeiculo(string placa)
-        {
-            
-            return Ok();
-        }
-
-        [HttpGet("hora")]
-        public IActionResult GetHora()
-        {
-            return Ok(DateTime.Now.ToString("HH:mm:ss"));
         }
     }
 }
+

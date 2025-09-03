@@ -39,9 +39,56 @@ namespace EstacionamentoApp.Test
                 .Be(System.Net.HttpStatusCode.Created);
 
         }
-        [Fact(Skip = "Em Desenvolvimento.")]
-        public void Autenticar_Veiculo_Com_Sucesso()
+        [Fact]
+        public void Retirar_Veiculo_Com_Sucesso()
         {
+
+            #region Cadastrar Veiculo para depois Retirar
+
+            var faker = new Faker("pt_BR");
+
+            var CadastroVeiculoRequest = new CadastroVeiculoRequestDto
+            {
+                NomeDono = faker.Name.FullName(),
+                Placa = faker.Random.String2(3, "ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+                + "-" +
+                faker.Random.Int(1000, 9999),
+                EmailDono = faker.Internet.Email(),
+            };
+
+            var jsonCadastroVeiculoRequest = new StringContent(JsonConvert.SerializeObject(CadastroVeiculoRequest), Encoding.UTF8, "application/json");
+
+            var Client = new WebApplicationFactory<Program>().CreateClient();
+
+            var resultCadastro = Client.PostAsync("/api/veiculo", jsonCadastroVeiculoRequest).Result;
+
+            #endregion
+
+            var RetirarVeiculoRequest = new RetirarVeiculoRequestDto
+            {
+                Placa = CadastroVeiculoRequest.Placa,
+                EmailDono = CadastroVeiculoRequest.EmailDono,
+            };
+
+            var jsonRetirarVeiculoRequest = new StringContent(JsonConvert.SerializeObject(RetirarVeiculoRequest), Encoding.UTF8, "application/json");
+
+            var result = Client.PostAsync("/api/veiculo/retirar", jsonRetirarVeiculoRequest).Result;
+
+            result.StatusCode
+                .Should()
+                .Be(System.Net.HttpStatusCode.OK);
+
+            var json = result.Content.ReadAsStringAsync().Result;
+
+            var response = JsonConvert.DeserializeObject<RetirarVeiculoResponseDto>(json);
+
+            object value = response.Id.Should().NotBeEmpty();
+            response.NomeDono.Should().Be(CadastroVeiculoRequest.NomeDono);
+
+            response.EmailDono.Should().Be(CadastroVeiculoRequest.EmailDono);
+
+            response.HoraSaida.Should().NotBeNull();
+
 
         }
     }

@@ -14,9 +14,7 @@ namespace EstacionamentoApp.Infra.Data.Contexts
         protected override void OnConfiguring
              (DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=(localdb)" +
-                "\\MSSQLLocalDB;Initial Catalog=EstacionamentoApp;" +
-                "Integrated Security=True;");
+            optionsBuilder.UseSqlServer("Data Source=localhost, 1433;Initial Catalog=master;User ID=sa;Password=***********;Encrypt=False");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
